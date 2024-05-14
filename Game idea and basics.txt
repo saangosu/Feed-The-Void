@@ -1,0 +1,40 @@
+Hewwo feed,hewwo Melo! This is a pretty basic document to present u the game.
+ALSO!!!!!! remember any of this (except the just one screen part) might change if u want to! we're a team and imma not be ur boss. xd If u don't like the idea we can totally change it.
+
+------ OBJECTIVE ------
+In order to finish the game, the player must feed the void creature until it fills the whole screen. Void Creature can be feed with multiple recipies, the less edible a recipie, the most it grows the Void Creature.
+
+------ AESTHETIC ------
+Art style must be simple (might be even sketchy if u want). Void Creature could be any kind of creature, or have any kind of traits. Could be just a couple of floating cat eyes, could be something more. It's up to you Melo. The game will be cute and silly. Song will be a slow loop, if Saan has enough skills (she has skill issues), it'll be a little similar to cooking shows or something like that.
+
+------ USER EXPERIENCE ------
+(idk if this is correct i didn't pay attention to those classes ANYWAY) The player will open the game, screen will be the background and a black circle. A text box will display the name of the game and Void Creature will open its eyes. Then, the list of ingredients will be there. The player migth feed the Void Creature with from one to four different ingredients. Creature will grow (being max the size of the screen) or shrink (being min the original size).
+
+------ RECIPE SYSTEM ------
+The recipes will receive a punctuation given the eadibleness of the ingredient mix. The idea is not making recipies so obvious, and also including silly stuff (as free hate for pineaple pizza or rice pudding, giving it high punctuation, and few punctuation to mixing soap with flour or something like that). Final calculation must output a number bigger than 0 and equal or smaller than 1 if the recipe is eadible, and a bigger number if it's not. To balance the game, it'd be good if max number were 2, or even 1.5. The output number will be multiplied by the current size of Void Creature.
+
+------ INGREDIENTS ------
+* Sugar
+* Salt
+* Flour
+* Onion
+* Tomato
+* Pineapple
+* Chesse
+* Raisins
+* Milk
+* Crayons
+* Markers
+* Soap
+* Shampoo
+* Creature plushie
+* Plant plushie
+* Briks
+* Plaster
+* Hair
+* Underwears
+* Soda
+* Pepper
+* A shoe
+* A shoe but it was actually cake
+* Smartphone
