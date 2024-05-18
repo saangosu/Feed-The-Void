@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://brvupwggv2yo2"]
+
+[ext_resource type="Texture2D" uid="uid://libj43pd76n4" path="res://assets/sprites/cooking_pot/cooking_pot_front.png" id="1_0rvki"]
+[ext_resource type="Texture2D" uid="uid://c5wq4qes88edg" path="res://assets/sprites/cooking_pot/cooking_pot_back.png" id="2_1rsht"]
+[ext_resource type="PackedScene" uid="uid://c0ubuu8ewrh" path="res://items/ingredient/ingredient_base.tscn" id="2_qn4pi"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CookingPot" type="Node2D" parent="."]
+position = Vector2(640, 628)
+
+[node name="IngredientsDestination" type="Marker2D" parent="CookingPot"]
+position = Vector2(-8, -77)
+
+[node name="Sprite2D" type="Sprite2D" parent="CookingPot"]
+texture = ExtResource("1_0rvki")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CookingPot"]
+texture = ExtResource("2_1rsht")
+
+[node name="IngredientsScatter" type="Node2D" parent="."]
+
+[node name="Cheese" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(83, 89)
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Crayons" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(246, 64)
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Flour" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(207, 266)
+label = "Flour"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Markers" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(109, 446)
+label = "Markers"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Milk" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(293, 402)
+label = "Milk"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Onion" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(79, 614)
+label = "Onion"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Pineapple" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(248, 555)
+label = "Pineapple"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Raisins" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(1177, 100)
+label = "Raisins"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Salt" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(1175, 272)
+label = "Salt"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Shampoo" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(950, 334)
+label = "Shampoo"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Soap" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(1178, 629)
+label = "Soap"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Sugar" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(986, 115)
+label = "Sugar"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+
+[node name="Tomato" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
+position = Vector2(1118, 467)
+label = "Tomato"
+ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bfgbdsalby3q1"]
+
+[node name="IngredientMoving" type="Sprite2D"]

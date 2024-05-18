@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1xhr60vdnkcq"]
+
+[ext_resource type="Texture2D" uid="uid://libj43pd76n4" path="res://assets/sprites/cooking_pot/cooking_pot_front.png" id="1_1asos"]
+[ext_resource type="Texture2D" uid="uid://c5wq4qes88edg" path="res://assets/sprites/cooking_pot/cooking_pot_back.png" id="2_lcody"]
+
+[node name="CookingPot" type="Node2D"]
+
+[node name="IngredientsDestination" type="Marker2D" parent="."]
+position = Vector2(0, -167)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1asos")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_lcody")
