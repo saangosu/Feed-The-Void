@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lsft8ehm87ip"]
+
+[ext_resource type="PackedScene" uid="uid://dyarxgnmiw66q" path="res://entities/void_creature.tscn" id="1_w3qjd"]
+
+[node name="MainLevel" type="Node"]
+
+[node name="VoidCreature" parent="." instance=ExtResource("1_w3qjd")]
+position = Vector2(600, 350)
