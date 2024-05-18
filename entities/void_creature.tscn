@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyarxgnmiw66q"]
+[gd_scene load_steps=17 format=3 uid="uid://dyarxgnmiw66q"]
 
 [ext_resource type="Texture2D" uid="uid://bqwexe1go8gd5" path="res://addons/placeholders/circle.png" id="1_gjyuu"]
 [ext_resource type="Script" path="res://entities/void_creature.gd" id="1_r21ie"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dpgh5iol6cxdd" path="res://assets/art/eye/blink/blink_eye_1.png" id="4_vsmki"]
 [ext_resource type="Texture2D" uid="uid://ctdq4wjpg5hov" path="res://assets/art/eye/blink/blink_eye_2.png" id="5_ryejc"]
 [ext_resource type="Texture2D" uid="uid://huywyqyfvskr" path="res://assets/art/eye/blink/blink_eye_3.png" id="6_cdiqs"]
+[ext_resource type="Texture2D" uid="uid://cyxbmq27iiayl" path="res://assets/art/mouth/idle/idle_mouth_0000.png" id="9_ngmu6"]
+[ext_resource type="Texture2D" uid="uid://bfic6y8gex81h" path="res://assets/art/mouth/mlem/mlem_mouth_0001.png" id="10_er121"]
+[ext_resource type="Texture2D" uid="uid://drjugmqkj7arj" path="res://assets/art/mouth/mlem/mlem_mouth_0002.png" id="11_ivbif"]
+[ext_resource type="Texture2D" uid="uid://bj5usxeeudced" path="res://assets/art/mouth/mlem/mlem_mouth_0003.png" id="12_pf358"]
+[ext_resource type="Texture2D" uid="uid://cnlc6usnxpwxr" path="res://assets/art/mouth/mlem/mlem_mouth_0004.png" id="13_6pmwp"]
+[ext_resource type="Texture2D" uid="uid://cu1dl4whvhic" path="res://assets/art/mouth/mlem/mlem_mouth_0005.png" id="14_bdwpf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cf10s"]
 animations = [{
@@ -46,6 +52,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_66qt3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ngmu6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_er121")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ivbif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pf358")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6pmwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bdwpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ivbif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_er121")
+}],
+"loop": false,
+"name": &"Mlem",
+"speed": 12.0
+}]
+
 [node name="VoidCreature" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_r21ie")
@@ -59,12 +102,33 @@ texture = ExtResource("1_gjyuu")
 position = Vector2(28, -24)
 scale = Vector2(0.90625, 0.90625)
 sprite_frames = SubResource("SpriteFrames_cf10s")
-animation = &"Blink"
+animation = &"Idle"
 autoplay = "Idle"
 
-[node name="BlinkTimer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+[node name="EyeR" type="AnimatedSprite2D" parent="."]
+position = Vector2(-28, -24)
+scale = Vector2(-0.906, 0.906)
+sprite_frames = SubResource("SpriteFrames_cf10s")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Mouth" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 12)
+sprite_frames = SubResource("SpriteFrames_66qt3")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="BlinkTimerL" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="BlinkTimerR" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="MlemTimer" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="EyeL" to="." method="_on_eye_l_animation_finished"]
-[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
+[connection signal="animation_finished" from="EyeR" to="." method="_on_eye_r_animation_finished"]
+[connection signal="animation_finished" from="Mouth" to="." method="_on_mouth_animation_finished"]
+[connection signal="timeout" from="BlinkTimerL" to="." method="_on_blink_l_timer_timeout"]
+[connection signal="timeout" from="BlinkTimerR" to="." method="_on_blink_r_timer_timeout"]
+[connection signal="timeout" from="MlemTimer" to="." method="_on_mlem_timer_timeout"]
