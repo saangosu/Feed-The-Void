@@ -27,7 +27,6 @@ func _physics_process(delta):
 	else:
 		scale = Vector2(maxSize, maxSize)
 	animationRate = 1.1 - (sizePercentage/125)
-	print($MlemTimer.time_left)
 
 func _on_blink_l_timer_timeout():
 	$EyeL.animation = "Blink"

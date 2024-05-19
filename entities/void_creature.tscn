@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyarxgnmiw66q"]
+[gd_scene load_steps=21 format=3 uid="uid://dyarxgnmiw66q"]
 
 [ext_resource type="Texture2D" uid="uid://bqwexe1go8gd5" path="res://addons/placeholders/circle.png" id="1_gjyuu"]
 [ext_resource type="Script" path="res://entities/void_creature.gd" id="1_r21ie"]
@@ -8,12 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://dpgh5iol6cxdd" path="res://assets/art/eye/blink/blink_eye_1.png" id="4_vsmki"]
 [ext_resource type="Texture2D" uid="uid://ctdq4wjpg5hov" path="res://assets/art/eye/blink/blink_eye_2.png" id="5_ryejc"]
 [ext_resource type="Texture2D" uid="uid://huywyqyfvskr" path="res://assets/art/eye/blink/blink_eye_3.png" id="6_cdiqs"]
+[ext_resource type="Texture2D" uid="uid://bvu4d70xc8bqh" path="res://assets/art/mouth/open/open_mouth_0003.png" id="9_ht5po"]
 [ext_resource type="Texture2D" uid="uid://cyxbmq27iiayl" path="res://assets/art/mouth/idle/idle_mouth_0000.png" id="9_ngmu6"]
+[ext_resource type="Texture2D" uid="uid://07ghnhlufrnf" path="res://assets/art/mouth/open/open_mouth_0002.png" id="10_dwos1"]
 [ext_resource type="Texture2D" uid="uid://bfic6y8gex81h" path="res://assets/art/mouth/mlem/mlem_mouth_0001.png" id="10_er121"]
+[ext_resource type="Texture2D" uid="uid://c02yub0frr3ie" path="res://assets/art/mouth/open/open_mouth_0001.png" id="11_560sm"]
 [ext_resource type="Texture2D" uid="uid://drjugmqkj7arj" path="res://assets/art/mouth/mlem/mlem_mouth_0002.png" id="11_ivbif"]
 [ext_resource type="Texture2D" uid="uid://bj5usxeeudced" path="res://assets/art/mouth/mlem/mlem_mouth_0003.png" id="12_pf358"]
 [ext_resource type="Texture2D" uid="uid://cnlc6usnxpwxr" path="res://assets/art/mouth/mlem/mlem_mouth_0004.png" id="13_6pmwp"]
 [ext_resource type="Texture2D" uid="uid://cu1dl4whvhic" path="res://assets/art/mouth/mlem/mlem_mouth_0005.png" id="14_bdwpf"]
+[ext_resource type="Texture2D" uid="uid://csub7h50ct68" path="res://assets/art/mouth/open/open_mouth_0004.png" id="19_jhyd5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cf10s"]
 animations = [{
@@ -87,6 +91,68 @@ animations = [{
 "loop": false,
 "name": &"Mlem",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_560sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dwos1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jhyd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ht5po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ngmu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_560sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dwos1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jhyd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ht5po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ngmu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_560sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dwos1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jhyd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ht5po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ngmu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dwos1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jhyd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ht5po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ngmu6")
+}],
+"loop": false,
+"name": &"Nom",
+"speed": 12.0
 }]
 
 [node name="VoidCreature" type="Node2D"]
@@ -102,21 +168,23 @@ texture = ExtResource("1_gjyuu")
 position = Vector2(28, -24)
 scale = Vector2(0.90625, 0.90625)
 sprite_frames = SubResource("SpriteFrames_cf10s")
-animation = &"Idle"
+animation = &"Blink"
 autoplay = "Idle"
 
 [node name="EyeR" type="AnimatedSprite2D" parent="."]
 position = Vector2(-28, -24)
 scale = Vector2(-0.906, 0.906)
 sprite_frames = SubResource("SpriteFrames_cf10s")
-animation = &"Idle"
+animation = &"Blink"
 autoplay = "Idle"
 
 [node name="Mouth" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 12)
 sprite_frames = SubResource("SpriteFrames_66qt3")
-animation = &"Idle"
+animation = &"Nom"
 autoplay = "Idle"
+frame = 18
+frame_progress = 1.0
 
 [node name="BlinkTimerL" type="Timer" parent="."]
 wait_time = 15.0
