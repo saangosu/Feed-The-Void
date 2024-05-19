@@ -22,10 +22,12 @@ texture = ExtResource("2_1rsht")
 
 [node name="Cheese" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(83, 89)
+label = "Cheese"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
 
 [node name="Crayons" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(246, 64)
+label = "Crayons"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
 
 [node name="Flour" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
