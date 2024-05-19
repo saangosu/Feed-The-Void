@@ -181,10 +181,8 @@ autoplay = "Idle"
 [node name="Mouth" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 12)
 sprite_frames = SubResource("SpriteFrames_66qt3")
-animation = &"Nom"
+animation = &"Mlem"
 autoplay = "Idle"
-frame = 18
-frame_progress = 1.0
 
 [node name="BlinkTimerL" type="Timer" parent="."]
 wait_time = 15.0
@@ -194,9 +192,14 @@ wait_time = 15.0
 
 [node name="MlemTimer" type="Timer" parent="."]
 
+[node name="EatingTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="animation_finished" from="EyeL" to="." method="_on_eye_l_animation_finished"]
 [connection signal="animation_finished" from="EyeR" to="." method="_on_eye_r_animation_finished"]
 [connection signal="animation_finished" from="Mouth" to="." method="_on_mouth_animation_finished"]
 [connection signal="timeout" from="BlinkTimerL" to="." method="_on_blink_l_timer_timeout"]
 [connection signal="timeout" from="BlinkTimerR" to="." method="_on_blink_r_timer_timeout"]
 [connection signal="timeout" from="MlemTimer" to="." method="_on_mlem_timer_timeout"]
+[connection signal="timeout" from="EatingTimer" to="." method="_on_eating_timer_timeout"]

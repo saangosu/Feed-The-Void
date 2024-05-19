@@ -1,10 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://brvupwggv2yo2"]
+[gd_scene load_steps=18 format=3 uid="uid://brvupwggv2yo2"]
 
 [ext_resource type="Texture2D" uid="uid://libj43pd76n4" path="res://assets/sprites/cooking_pot/cooking_pot_front.png" id="1_0rvki"]
+[ext_resource type="Script" path="res://levels/main.gd" id="1_g4juv"]
 [ext_resource type="Texture2D" uid="uid://c5wq4qes88edg" path="res://assets/sprites/cooking_pot/cooking_pot_back.png" id="2_1rsht"]
 [ext_resource type="PackedScene" uid="uid://c0ubuu8ewrh" path="res://items/ingredient/ingredient_base.tscn" id="2_qn4pi"]
+[ext_resource type="PackedScene" uid="uid://dyarxgnmiw66q" path="res://entities/void_creature.tscn" id="4_2ifap"]
+[ext_resource type="Texture2D" uid="uid://b8v8kwsl4uaki" path="res://assets/art/chesse.png" id="5_dn3sj"]
+[ext_resource type="Texture2D" uid="uid://cbuxfpayj78qe" path="res://assets/art/crayons.png" id="6_4yaej"]
+[ext_resource type="Texture2D" uid="uid://d1j8tuaknp3br" path="res://assets/art/flour.png" id="7_1xi7n"]
+[ext_resource type="Texture2D" uid="uid://cfrg18lym76fg" path="res://assets/art/markers.png" id="8_0bkek"]
+[ext_resource type="Texture2D" uid="uid://ty6c03fvgsgm" path="res://assets/art/milk.png" id="9_33rgq"]
+[ext_resource type="Texture2D" uid="uid://btv0dwiag0ymr" path="res://assets/art/pineaple.png" id="10_7rmom"]
+[ext_resource type="Texture2D" uid="uid://cwgnt1x4iv6ye" path="res://assets/art/onion.png" id="10_r2aq0"]
+[ext_resource type="Texture2D" uid="uid://d4dp3tyatra30" path="res://assets/art/raisins.png" id="11_qtp3a"]
+[ext_resource type="Texture2D" uid="uid://bxbwcjyirmt5v" path="res://assets/art/salt.png" id="12_l34cn"]
+[ext_resource type="Texture2D" uid="uid://daoh4cxvs02vs" path="res://assets/art/shampoo.png" id="13_ij7kq"]
+[ext_resource type="Texture2D" uid="uid://bn2618hkva50j" path="res://assets/art/sugar.png" id="14_sdulf"]
+[ext_resource type="Texture2D" uid="uid://cwxcxaj5vvvrn" path="res://assets/art/tomato.png" id="15_flo7c"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_g4juv")
+
+[node name="VoidCreature" parent="." instance=ExtResource("4_2ifap")]
+position = Vector2(640, 258)
 
 [node name="CookingPot" type="Node2D" parent="."]
 position = Vector2(640, 601)
@@ -22,81 +40,80 @@ texture = ExtResource("2_1rsht")
 
 [node name="Cheese" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(83, 89)
+image = ExtResource("5_dn3sj")
 label = "Cheese"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 1.6
 ingredient_value = 6.0
 
 [node name="Crayons" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(246, 64)
+image = ExtResource("6_4yaej")
 label = "Crayons"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 0.9
 ingredient_value = -10.0
 
 [node name="Flour" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(207, 266)
+image = ExtResource("7_1xi7n")
 label = "Flour"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 1.5
 ingredient_value = 4.0
 
 [node name="Markers" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(109, 446)
+image = ExtResource("8_0bkek")
 label = "Markers"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 0.8
 ingredient_value = -15.0
 
 [node name="Milk" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(293, 402)
+image = ExtResource("9_33rgq")
 label = "Milk"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 1.4
 ingredient_value = 2.0
 
 [node name="Onion" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(79, 614)
+image = ExtResource("10_r2aq0")
 label = "Onion"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 1.2
 ingredient_value = 3.0
 
 [node name="Pineapple" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(248, 555)
+image = ExtResource("10_7rmom")
 label = "Pineapple"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 3.0
 ingredient_value = 6.0
 
 [node name="Raisins" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1177, 100)
+image = ExtResource("11_qtp3a")
 label = "Raisins"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 2.0
 ingredient_value = 5.0
 
 [node name="Salt" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1175, 272)
+image = ExtResource("12_l34cn")
 label = "Salt"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 1.5
-ingredient_value = null
 
 [node name="Shampoo" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(950, 334)
+image = ExtResource("13_ij7kq")
 label = "Shampoo"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 0.5
 ingredient_value = -50.0
 
@@ -104,22 +121,52 @@ ingredient_value = -50.0
 position = Vector2(1178, 629)
 label = "Soap"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 0.75
 ingredient_value = -20.0
 
 [node name="Sugar" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(986, 115)
+image = ExtResource("14_sdulf")
 label = "Sugar"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
 ingredient_multiplier = 1.5
 ingredient_value = 1.5
 
 [node name="Tomato" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1118, 467)
+image = ExtResource("15_flo7c")
 label = "Tomato"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
-move_speed = null
-ingredient_multiplier = null
 ingredient_value = 5.0
+
+[node name="EndScreen" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="EndScreen"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 297.0
+offset_right = 1281.0
+offset_bottom = 476.0
+text = "Congratulations! You have grown the void enough for it to grow on it's own! Now it'll devour everything! :D
+Thank you for playing <3
+
+Feed The Void by Silly Creatures Studio
+saangoosu
+FeedTheMEe
+AstroLazuli"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="EndScreen"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 524.0
+offset_right = 686.0
+offset_bottom = 555.0
+text = "Play again?"
+
+[connection signal="pressed" from="EndScreen/Button" to="." method="_on_button_pressed"]

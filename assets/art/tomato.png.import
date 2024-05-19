@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btv0dwiag0ymr"
-path="res://.godot/imported/Pineaple.png-7962a8fe7a4c2b90812a620f70dd01a6.ctex"
+uid="uid://cwxcxaj5vvvrn"
+path="res://.godot/imported/tomato.png-ef9a8a2c947bf0966e620b38f3928b14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Pineaple.png"
-dest_files=["res://.godot/imported/Pineaple.png-7962a8fe7a4c2b90812a620f70dd01a6.ctex"]
+source_file="res://assets/art/tomato.png"
+dest_files=["res://.godot/imported/tomato.png-ef9a8a2c947bf0966e620b38f3928b14.ctex"]
 
 [params]
 

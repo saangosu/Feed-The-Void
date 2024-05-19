@@ -5,6 +5,8 @@ extends Node2D
 
 var sizePercentage := 1.0
 var animationRate := 1.0
+var food_value := 0
+var has_won = false
 
 func _ready():
 	minSize = scale.y
@@ -20,18 +22,46 @@ func _ready():
 	$MlemTimer.wait_time = randi() % 25 + 10
 	$MlemTimer.start()
 
+
+func _process(delta):
+	if CustomGlobal.isCooking:
+		CustomGlobal.isCooking = false
+		food_value = CustomGlobal.ingredients_value
+		$Mouth.play("Nom")
+		$EatingTimer.start()
+
+
 func _physics_process(delta):
-	if scale.y < maxSize:
-		scale += Vector2(.001, .001)
-		sizePercentage = scale.y * 100 / maxSize
+	if !CustomGlobal.has_won:
+		if food_value > 0:
+			if scale.y < maxSize:
+				scale += Vector2(.002, .002) * 50
+				food_value -= 0.2
+				sizePercentage = scale.y * 100 / maxSize
+			else:
+				CustomGlobal.has_won = true
+			animationRate = 1.1 - (sizePercentage/125)
+		if food_value < 0:
+			if food_value+0.2 >=0:
+				food_value = 0
+			elif scale.y > minSize:
+				scale -= Vector2(.002, .002)
+				food_value += 0.2
+				sizePercentage = scale.y * 100 / maxSize
+			else:
+				scale = Vector2(minSize, minSize)
+	elif !has_won:
+		has_won = true
+		print("User won!")
 	else:
-		scale = Vector2(maxSize, maxSize)
-	animationRate = 1.1 - (sizePercentage/125)
+		scale += Vector2(.5, .5)
+
 
 func _on_blink_l_timer_timeout():
 	$EyeL.animation = "Blink"
 	$EyeL.speed_scale = animationRate
 	$EyeL.play()
+
 
 func _on_eye_l_animation_finished():
 	$EyeL.animation = "Idle"
@@ -41,10 +71,12 @@ func _on_eye_l_animation_finished():
 	$BlinkTimerL.wait_time += sizePercentage/50
 	$BlinkTimerL.start()
 
+
 func _on_blink_r_timer_timeout():
 	$EyeR.animation = "Blink"
 	$EyeR.speed_scale = animationRate
 	$EyeR.play()
+
 
 func _on_eye_r_animation_finished():
 	$EyeR.animation = "Idle"
@@ -54,10 +86,12 @@ func _on_eye_r_animation_finished():
 	$BlinkTimerR.wait_time += sizePercentage/50
 	$BlinkTimerR.start()
 
+
 func _on_mlem_timer_timeout():
-	$Mouth.animation = "Mlem"
-	$Mouth.speed_scale = animationRate
-	$Mouth.play()
+	if !$Mouth.is_playing():
+		$Mouth.speed_scale = animationRate
+		$Mouth.play("Mlem")
+
 
 func _on_mouth_animation_finished():
 	$Mouth.animation = "Idle"
@@ -66,3 +100,7 @@ func _on_mouth_animation_finished():
 	$MlemTimer.wait_time = randi() % 20 + 10
 	$MlemTimer.wait_time += sizePercentage/50
 	$MlemTimer.start()
+
+
+func _on_eating_timer_timeout():
+	CustomGlobal.resetPot()

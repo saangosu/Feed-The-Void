@@ -50,15 +50,16 @@ func set_ingredient_moving():
 func move_to_cooking_pot(delta: float):
 	if is_moving:
 		ingredient_moving.global_position = ingredient_moving.global_position.move_toward(ingredient_destination.global_position, delta*move_speed)
-		print(ingredient_moving.global_position)
 	if ingredient_moving != null && ingredient_moving.global_position == ingredient_destination.global_position:
 		is_moving = false
 		ingredient_moving.queue_free()
+		if CustomGlobal.ingredients_count >= CustomGlobal.ingredients_limit:
+			CustomGlobal.cook()
 
 
 # SIGNALS
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	if ingredient_destination:
+	if ingredient_destination && !CustomGlobal.has_won:
 		if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 			if !is_moving && CustomGlobal.ingredients_limit > CustomGlobal.ingredients_count:
 				set_ingredient_moving()
