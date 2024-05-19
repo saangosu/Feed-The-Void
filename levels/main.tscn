@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brvupwggv2yo2"]
+[gd_scene load_steps=22 format=3 uid="uid://brvupwggv2yo2"]
 
 [ext_resource type="Texture2D" uid="uid://libj43pd76n4" path="res://assets/sprites/cooking_pot/cooking_pot_front.png" id="1_0rvki"]
 [ext_resource type="Script" path="res://levels/main.gd" id="1_g4juv"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://daoh4cxvs02vs" path="res://assets/art/shampoo.png" id="13_ij7kq"]
 [ext_resource type="Texture2D" uid="uid://bn2618hkva50j" path="res://assets/art/sugar.png" id="14_sdulf"]
 [ext_resource type="Texture2D" uid="uid://cwxcxaj5vvvrn" path="res://assets/art/tomato.png" id="15_flo7c"]
+[ext_resource type="Texture2D" uid="uid://dgnxpx4pffibd" path="res://assets/art/soap.png" id="16_5715l"]
 [ext_resource type="FontFile" uid="uid://dwtchfr018ffl" path="res://assets/fonts/funnytype.ttf" id="18_33yxn"]
 [ext_resource type="AudioStream" uid="uid://f4u4y2dqo1mq" path="res://assets/sound/voidsa_nova_astrolazuli.mp3" id="18_e16j6"]
 
@@ -131,6 +132,7 @@ ingredient_value = -50.0
 
 [node name="Soap" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1178, 629)
+image = ExtResource("16_5715l")
 label = "Soap"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
 ingredient_multiplier = 0.75
