@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyarxgnmiw66q"]
+[gd_scene load_steps=24 format=3 uid="uid://dyarxgnmiw66q"]
 
 [ext_resource type="Texture2D" uid="uid://bqwexe1go8gd5" path="res://addons/placeholders/circle.png" id="1_gjyuu"]
 [ext_resource type="Script" path="res://entities/void_creature.gd" id="1_r21ie"]
@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://cnlc6usnxpwxr" path="res://assets/art/mouth/mlem/mlem_mouth_0004.png" id="13_6pmwp"]
 [ext_resource type="Texture2D" uid="uid://cu1dl4whvhic" path="res://assets/art/mouth/mlem/mlem_mouth_0005.png" id="14_bdwpf"]
 [ext_resource type="Texture2D" uid="uid://csub7h50ct68" path="res://assets/art/mouth/open/open_mouth_0004.png" id="19_jhyd5"]
+[ext_resource type="AudioStream" uid="uid://cdd0muopk1vw3" path="res://assets/sound/nomnomnomnomnomnomnom.mp3" id="19_vj1va"]
+[ext_resource type="AudioStream" uid="uid://c2kfcqs7tt1cd" path="res://assets/sound/smol_noise.mp3" id="20_514e5"]
+[ext_resource type="AudioStream" uid="uid://bvb0stxq8n1ba" path="res://assets/sound/big_noise.mp3" id="21_mqxi4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cf10s"]
 animations = [{
@@ -195,6 +198,15 @@ wait_time = 15.0
 [node name="EatingTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="NommingAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_vj1va")
+
+[node name="ShrinkAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_514e5")
+
+[node name="GrowAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_mqxi4")
 
 [connection signal="animation_finished" from="EyeL" to="." method="_on_eye_l_animation_finished"]
 [connection signal="animation_finished" from="EyeR" to="." method="_on_eye_r_animation_finished"]

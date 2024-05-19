@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://brvupwggv2yo2"]
+[gd_scene load_steps=21 format=3 uid="uid://brvupwggv2yo2"]
 
 [ext_resource type="Texture2D" uid="uid://libj43pd76n4" path="res://assets/sprites/cooking_pot/cooking_pot_front.png" id="1_0rvki"]
 [ext_resource type="Script" path="res://levels/main.gd" id="1_g4juv"]
@@ -17,9 +17,21 @@
 [ext_resource type="Texture2D" uid="uid://daoh4cxvs02vs" path="res://assets/art/shampoo.png" id="13_ij7kq"]
 [ext_resource type="Texture2D" uid="uid://bn2618hkva50j" path="res://assets/art/sugar.png" id="14_sdulf"]
 [ext_resource type="Texture2D" uid="uid://cwxcxaj5vvvrn" path="res://assets/art/tomato.png" id="15_flo7c"]
+[ext_resource type="FontFile" uid="uid://dwtchfr018ffl" path="res://assets/fonts/funnytype.ttf" id="18_33yxn"]
+[ext_resource type="AudioStream" uid="uid://f4u4y2dqo1mq" path="res://assets/sound/voidsa_nova_astrolazuli.mp3" id="18_e16j6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_icmj4"]
+font = ExtResource("18_33yxn")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_g4juv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+offset_right = 1282.0
+offset_bottom = 726.0
+mouse_filter = 2
+color = Color(0.867736, 0.86367, 0.81559, 1)
 
 [node name="VoidCreature" parent="." instance=ExtResource("4_2ifap")]
 position = Vector2(640, 258)
@@ -159,6 +171,7 @@ Feed The Void by Silly Creatures Studio
 saangoosu
 FeedTheMEe
 AstroLazuli"
+label_settings = SubResource("LabelSettings_icmj4")
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="EndScreen"]
@@ -167,6 +180,13 @@ offset_left = 592.0
 offset_top = 524.0
 offset_right = 686.0
 offset_bottom = 555.0
+theme_override_fonts/font = ExtResource("18_33yxn")
 text = "Play again?"
 
+[node name="MusicAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_e16j6")
+volume_db = -10.895
+autoplay = true
+
 [connection signal="pressed" from="EndScreen/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="MusicAudio" to="." method="_on_music_audio_finished"]

@@ -49,6 +49,8 @@ func set_ingredient_moving():
 
 func move_to_cooking_pot(delta: float):
 	if is_moving:
+		if !$FlyAudio.playing:
+			$FlyAudio.play()
 		ingredient_moving.global_position = ingredient_moving.global_position.move_toward(ingredient_destination.global_position, delta*move_speed)
 	if ingredient_moving != null && ingredient_moving.global_position == ingredient_destination.global_position:
 		is_moving = false
@@ -64,6 +66,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			if !is_moving && CustomGlobal.ingredients_limit > CustomGlobal.ingredients_count:
 				set_ingredient_moving()
 				CustomGlobal.add_ingredient(label, ingredient_value, ingredient_multiplier)
+				
 				is_moving = true
 
 

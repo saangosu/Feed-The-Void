@@ -28,6 +28,7 @@ func _process(delta):
 		CustomGlobal.isCooking = false
 		food_value = CustomGlobal.ingredients_value
 		$Mouth.play("Nom")
+		$NommingAudio.play()
 		$EatingTimer.start()
 
 
@@ -35,7 +36,9 @@ func _physics_process(delta):
 	if !CustomGlobal.has_won:
 		if food_value > 0:
 			if scale.y < maxSize:
-				scale += Vector2(.002, .002) * 50
+				if !$GrowAudio.playing:
+					$GrowAudio.play()
+				scale += Vector2(.006, .006)
 				food_value -= 0.2
 				sizePercentage = scale.y * 100 / maxSize
 			else:
@@ -45,7 +48,9 @@ func _physics_process(delta):
 			if food_value+0.2 >=0:
 				food_value = 0
 			elif scale.y > minSize:
-				scale -= Vector2(.002, .002)
+				if !$ShrinkAudio.playing:
+					$ShrinkAudio.play()
+				scale -= Vector2(.006, .006)
 				food_value += 0.2
 				sizePercentage = scale.y * 100 / maxSize
 			else:
