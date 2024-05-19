@@ -1,12 +1,16 @@
 extends Node2D
 
+@export_group("General")
 @export var image: Texture
 @export var label: String
 @export var ingredient_destination: Marker2D
 @export var move_speed := 800
+@export_group("Ingredient Logic")
+@export var ingredient_multiplier := 1.0
+@export var ingredient_value := 1.0
 
 var ingredient_moving: Node2D
-
+var ingredient_used_count := 0
 var is_moving := false
 
 const new_x = 64
@@ -56,8 +60,9 @@ func move_to_cooking_pot(delta: float):
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if ingredient_destination:
 		if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			if !is_moving:
+			if !is_moving && CustomGlobal.ingredients_limit > CustomGlobal.ingredients_count:
 				set_ingredient_moving()
+				CustomGlobal.add_ingredient(label, ingredient_value, ingredient_multiplier)
 				is_moving = true
 
 

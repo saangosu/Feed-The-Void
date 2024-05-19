@@ -7,10 +7,10 @@
 [node name="Main" type="Node2D"]
 
 [node name="CookingPot" type="Node2D" parent="."]
-position = Vector2(640, 628)
+position = Vector2(640, 601)
 
 [node name="IngredientsDestination" type="Marker2D" parent="CookingPot"]
-position = Vector2(-8, -77)
+position = Vector2(0, -77)
 
 [node name="Sprite2D" type="Sprite2D" parent="CookingPot"]
 texture = ExtResource("1_0rvki")
@@ -22,63 +22,104 @@ texture = ExtResource("2_1rsht")
 
 [node name="Cheese" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(83, 89)
+label = "Cheese"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 1.6
+ingredient_value = 6.0
 
 [node name="Crayons" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(246, 64)
+label = "Crayons"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 0.9
+ingredient_value = -10.0
 
 [node name="Flour" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(207, 266)
 label = "Flour"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 1.5
+ingredient_value = 4.0
 
 [node name="Markers" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(109, 446)
 label = "Markers"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 0.8
+ingredient_value = -15.0
 
 [node name="Milk" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(293, 402)
 label = "Milk"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 1.4
+ingredient_value = 2.0
 
 [node name="Onion" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(79, 614)
 label = "Onion"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 1.2
+ingredient_value = 3.0
 
 [node name="Pineapple" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(248, 555)
 label = "Pineapple"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 3.0
+ingredient_value = 6.0
 
 [node name="Raisins" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1177, 100)
 label = "Raisins"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 2.0
+ingredient_value = 5.0
 
 [node name="Salt" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1175, 272)
 label = "Salt"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 1.5
+ingredient_value = null
 
 [node name="Shampoo" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(950, 334)
 label = "Shampoo"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 0.5
+ingredient_value = -50.0
 
 [node name="Soap" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1178, 629)
 label = "Soap"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 0.75
+ingredient_value = -20.0
 
 [node name="Sugar" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(986, 115)
 label = "Sugar"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = 1.5
+ingredient_value = 1.5
 
 [node name="Tomato" parent="IngredientsScatter" node_paths=PackedStringArray("ingredient_destination") instance=ExtResource("2_qn4pi")]
 position = Vector2(1118, 467)
 label = "Tomato"
 ingredient_destination = NodePath("../../CookingPot/IngredientsDestination")
+move_speed = null
+ingredient_multiplier = null
+ingredient_value = 5.0
